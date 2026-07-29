@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Recommendation App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main">
+        <div class="sub">
+            <h1>Music Recommendation App</h1>
+            <div class="sub">
+                <form method="POST">
+                    <input type="text" name="song" placeholder="Enter a song name">
+                    <button type="submit">Get Recommendations</button>
+                </form>
+            </div>
+
+            {% if recs %}
+                <h3>Recommended Songs:</h3>
+                <ul>
+                {% for r in recs %}
+                    <li>{{ r }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
